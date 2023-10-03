@@ -1,20 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useState, createContext } from "react";
+import { Switch, Route } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute';
+import Dashboard from './components/Dashboard';
+import Gate from './components/Gate';
+
+export const LoginContext = createContext();
 
 function App() {
+  const [user, setUser] = useState('');
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+      <LoginContext.Provider value={[user, setUser]}>
+        <div className="App">
+          <Switch>
+            <Route path="/gate" component={Gate}/>
+            <PrivateRoute path="/">
+              <Dashboard/>
+            </PrivateRoute>
+          </Switch>
+        </div>
+      </LoginContext.Provider>
   );
 }
 
