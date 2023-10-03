@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
+import { onGateSubmit } from '../hooks/onGateSubmit'
 
 function Gate() {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     
-    function onSubmit(e) {
-        e.preventDefault()
-        if (e.nativeEvent.submitter.name === 'Login') {
-            console.log('logging in!')
-        } else if (e.nativeEvent.submitter.name === 'Sign Up') {
-            console.log('signed up!')
-        }
-    }
-
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onGateSubmit}>
 
             <label htmlFor="username">Username:</label>
             <input
