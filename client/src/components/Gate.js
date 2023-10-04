@@ -1,12 +1,41 @@
-import React, { useState } from 'react'
-import { onGateSubmit } from '../hooks/onGateSubmit'
+import React, { useState, useContext } from 'react'
+import { LoginContext } from '../App'
 
 function Gate() {
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
+    const [user, setUser] = useContext(LoginContext)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState([])
+
+    function useGateSubmit(e) {
+        e.preventDefault()
+        const userCreds = {
+            username,
+            password
+        }
+    
+        if (e.nativeEvent.submitter.name === 'Login') {
+            console.log('logging in!')
+        } else if (e.nativeEvent.submitter.name === 'Sign Up') {
+            fetch('/users', {
+                method: "POST",
+                headers: {'Content-Type':'application/json'},
+                body:JSON.stringify(userCreds)
+            })
+            .then(res => {
+                if(res.ok){
+                    res.json().then(setUser)
+                } else {
+                    res.json().then( err => setErrors(err.errors) )
+                }
+            })
+            console.log('signed up!')
+        }
+    }
+
     
     return (
-        <form onSubmit={onGateSubmit}>
+        <form onSubmit={useGateSubmit}>
 
             <label htmlFor="username">Username:</label>
             <input
