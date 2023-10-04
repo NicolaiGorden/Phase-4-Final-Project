@@ -26,7 +26,7 @@ function Gate() {
                 if(res.ok){
                     res.json().then(setUser)
                 } else {
-                    res.json().then( (err) => console.log(err.error) )
+                    res.json().then( (err) => console.log(err.errors) )
                 }
             })
             console.log('signed up!')
