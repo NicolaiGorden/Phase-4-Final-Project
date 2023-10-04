@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     end
 
     def create
+        byebug
         user = User.create(user_params)
         if user.valid?
             render json: user, status: :created
