@@ -5,9 +5,52 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.login-wrapper {
+  width: 350px;
+  height: 500px;
+  background:
+    linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+}
+
+
+.login-input {
+  width: 60%;
+  height: 20px;
+  justify-content: center;
+  display: flex;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 50%;
+  height: 30px;
+  justify-content: center;
+  margin: 10px auto;
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -35,30 +35,32 @@ function Gate() {
 
     
     return (
-        <div>
-            <h3>{errorData}</h3>
-            <form onSubmit={useGateSubmit}>
+        <div class="login-wrapper">
+            <div class="login">
+                <h3>{errorData}</h3>
+                <form onSubmit={useGateSubmit}>
+                    <input
+                        placeholder='Username'
+                        class="login-input"
+                        type="text"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
 
-                <label htmlFor="username">Username:</label>
-                <input
-                    type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+                    <input
+                        placeholder='Password'
+                        class="login-input"
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-
-                <button type="submit" name="Login">Log In</button>
-                <button type="submit" name="Sign Up">Sign Up</button>
-
-            </form>
+                    <button class="login-button" type="submit" name="Login">Log In</button>
+                    <button class="login-button" type="submit" name="Sign Up">Sign Up</button>
+                </form>
+            </div>
         </div>
     )
 }
