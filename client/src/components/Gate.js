@@ -13,26 +13,21 @@ function Gate() {
         e.preventDefault()
         const userCreds = {
             username,
-            password
+            password,
+            password_confirmation: passwordConfirmation,
         }
-    
-        if (e.nativeEvent.submitter.name === 'Login') {
-            console.log('logging in!')
-        } else if (e.nativeEvent.submitter.name === 'Sign Up') {
-            fetch('/users', {
-                method: "POST",
-                headers: {'Content-Type':'application/json'},
-                body:JSON.stringify(userCreds)
-            })
-            .then(res => {
-                if(res.ok){
-                    res.json().then(setUser)
-                } else {
-                    res.json().then( (err) => console.log(err.errors) )
-                }
-            })
-            console.log('signed up!')
-        }
+        fetch('/users', {
+            method: "POST",
+            headers: {'Content-Type':'application/json'},
+            body:JSON.stringify(userCreds)
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(setUser)
+            } else {
+                res.json().then( (err) => console.log(err.errors) )
+            }
+        }) 
     }
 
     function onLoginSubmit() {
@@ -89,11 +84,12 @@ function Gate() {
 
                         <input
                             placeholder='Confirm Password'
+                            name='password_confirmation'
                             class="login-input"
                             type="password"
-                            id="password-confirmation"
+                            id="password_confirmation"
                             value={passwordConfirmation}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
 
                         <button class="login-button" type="submit" name="Sign Up">Sign Up</button>
