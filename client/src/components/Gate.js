@@ -5,9 +5,11 @@ function Gate() {
     const [user, setUser] = useContext(LoginContext)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errorData, setErrorData] = useState([])
+    const [signUp, setSignUp] = useState(false)
 
-    function useGateSubmit(e) {
+    function onSignUpSubmit(e) {
         e.preventDefault()
         const userCreds = {
             username,
@@ -33,33 +35,71 @@ function Gate() {
         }
     }
 
+    function onLoginSubmit() {
+        console.log('onLoginSubmit not written')
+    }
+
     
     return (
         <div class="login-wrapper">
             <div class="login">
                 <h3>{errorData}</h3>
-                <form onSubmit={useGateSubmit}>
-                    <input
-                        placeholder='Username'
-                        class="login-input"
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+                {!signUp ? (
+                    <form onSubmit={onLoginSubmit}>
+                        <input
+                            placeholder='Username'
+                            class="login-input"
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
 
-                    <input
-                        placeholder='Password'
-                        class="login-input"
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                        <input
+                            placeholder='Password'
+                            class="login-input"
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
 
-                    <button class="login-button" type="submit" name="Login">Log In</button>
-                    <button class="login-button" type="submit" name="Sign Up">Sign Up</button>
-                </form>
+                        <button class="login-button" type="submit" name="Login">Log In</button>
+                        <div>Are you new? <a class="login-link" onClick={() => setSignUp(!signUp)}>Sign Up!</a> </div>
+                    </form>
+                ) : (
+                    <form onSubmit={onSignUpSubmit}>
+                        <input
+                            placeholder='Username'
+                            class="login-input"
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+
+                        <input
+                            placeholder='Password'
+                            class="login-input"
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+
+                        <input
+                            placeholder='Confirm Password'
+                            class="login-input"
+                            type="password"
+                            id="password-confirmation"
+                            value={passwordConfirmation}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+
+                        <button class="login-button" type="submit" name="Sign Up">Sign Up</button>
+                        <div>Have an account? <a class="login-link" onClick={() => setSignUp(!signUp)}>Log in!</a> </div>
+                    </form>
+                )}
             </div>
         </div>
     )

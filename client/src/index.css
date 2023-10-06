@@ -54,3 +54,21 @@ code {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.login-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color:blue;
+}
+
+.login-link:visited {
+  color:blue;
+}
+
+.login-link:hover {
+  color:rgb(226, 60, 0);
+}
+
+.login-link:active {
+  color:rgb(226, 60, 0);
+}
