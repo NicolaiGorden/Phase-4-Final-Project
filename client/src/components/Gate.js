@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { useHistory  } from 'react-router-dom/cjs/react-router-dom.min'
 import { LoginContext } from '../App'
 
 function Gate() {
@@ -9,6 +10,7 @@ function Gate() {
     const [errorData, setErrorData] = useState([])
     const [signUp, setSignUp] = useState(false)
     const [confirmMessage, setConfirmMessage] = useState(false)
+    const history = useHistory()
 
     useEffect(() => {
         setErrorData([])
@@ -20,6 +22,7 @@ function Gate() {
 
     function onLogin(user) {
         setUser(user)
+        history.push("/")
     }
 
     function onSignUpSubmit(e) {
