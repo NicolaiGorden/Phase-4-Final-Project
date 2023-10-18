@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useHistory  } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { LoginContext } from '../App'
 
 function Gate() {
