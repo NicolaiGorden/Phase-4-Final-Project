@@ -18,6 +18,10 @@ function Gate() {
         setConfirmMessage(false)
     }, [signUp])
 
+    function onLogin(user) {
+        setUser(user)
+    }
+
     function onSignUpSubmit(e) {
         e.preventDefault()
         const userCreds = {
@@ -58,11 +62,7 @@ function Gate() {
         })
         .then((res) => {
             if(res.ok){
-                res.json().then(
-                    console.log('success!')
-                    //currently saves user to the backend.
-                    //next, make it redirect to homepage, and set user.
-                )
+                res.json().then((user) => onLogin(user))
             } else {
                 res.json().then((err) => {
                     setErrorData([err.error.login])

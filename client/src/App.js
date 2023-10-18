@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
@@ -9,6 +9,14 @@ export const LoginContext = createContext();
 
 function App() {
   const [user, setUser] = useState('');
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user))
+      }
+    })
+  }, [])
 
   return (
       <LoginContext.Provider value={[user, setUser]}>
