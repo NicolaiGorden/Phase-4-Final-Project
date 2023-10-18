@@ -44,13 +44,46 @@ function Gate() {
         }) 
     }
 
-    function onLoginSubmit() {
-        console.log('onLoginSubmit not written')
+    function onLoginSubmit(e) {
+        e.preventDefault()
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ 
+                username,
+                password
+            }),
+        })
+        .then((res) => {
+            if(res.ok){
+                res.json().then(
+                    console.log('success!')
+                    //currently saves user to the backend.
+                    //next, make it redirect to homepage, and set user.
+                )
+            } else {
+                res.json().then((err) => {
+                    setErrorData([err.error.login])
+                })
+            }
+        })
     }
+// TEMP
+    function handleLogout(e) {
+        e.preventDefault()
+        fetch("/logout", {
+            method: "DELETE",
+        })
+    }
+// TEMP 
 
-    
     return (
         <div class="login-wrapper">
+            {/* TEMP */}
+            <button onClick={handleLogout}>log out</button>
+            {/* TEMP */}
             <div class="login">
                 {!signUp ? (
                     <form onSubmit={onLoginSubmit}>
