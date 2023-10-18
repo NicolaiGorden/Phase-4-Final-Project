@@ -26,6 +26,9 @@ code {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 
 
@@ -71,4 +74,18 @@ code {
 
 .login-link:active {
   color:rgb(226, 60, 0);
+}
+
+.error-message {
+  color: rgb(141, 20, 20);
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.confirm-message {
+  color: rgb(22, 53, 26);
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { LoginContext } from '../App'
 
 function Gate() {
@@ -8,6 +8,15 @@ function Gate() {
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errorData, setErrorData] = useState([])
     const [signUp, setSignUp] = useState(false)
+    const [confirmMessage, setConfirmMessage] = useState(false)
+
+    useEffect(() => {
+        setErrorData([])
+        setUsername('')
+        setPassword('')
+        setPasswordConfirmation('')
+        setConfirmMessage(false)
+    }, [signUp])
 
     function onSignUpSubmit(e) {
         e.preventDefault()
@@ -23,9 +32,14 @@ function Gate() {
         })
         .then(res => {
             if(res.ok){
-                res.json().then(setUser)
+                res.json().then(
+                    setConfirmMessage(true),
+                    setTimeout(() => {
+                        setSignUp(false)
+                    }, 2000)
+                )
             } else {
-                res.json().then( (err) => console.log(err.errors) )
+                res.json().then( (err) => {setErrorData(err.errors)} )
             }
         }) 
     }
@@ -38,7 +52,6 @@ function Gate() {
     return (
         <div class="login-wrapper">
             <div class="login">
-                <h3>{errorData}</h3>
                 {!signUp ? (
                     <form onSubmit={onLoginSubmit}>
                         <input
@@ -97,6 +110,17 @@ function Gate() {
                     </form>
                 )}
             </div>
+            {errorData.map(e => {
+                if (e === "Password confirmation doesn't match Password") {
+                    return <h3 class="error-message">Passwords don't match!</h3>
+                } else {
+                    return <h3 class="error-message">{e}</h3>
+                }
+            })}
+            {confirmMessage
+                ? <h3 class="confirm-message">Account made! Redirecting to log in.</h3>
+                : <h3></h3>
+            }
         </div>
     )
 }
