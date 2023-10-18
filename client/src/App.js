@@ -1,7 +1,6 @@
 import './App.css';
 import { useState, createContext, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
 import Gate from './components/Gate';
 
@@ -23,9 +22,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route path="/gate" component={Gate}/>
-            <PrivateRoute path="/">
-              <Dashboard/>
-            </PrivateRoute>
+            <Route path="/" component={Dashboard}/>
           </Switch>
         </div>
       </LoginContext.Provider>
