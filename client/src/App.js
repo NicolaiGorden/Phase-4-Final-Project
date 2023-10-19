@@ -35,7 +35,6 @@ export default App;
 
 // NOTES
 // search games dropdown (third from the top). 
-//FORGET THIS: Should connect to the api ONLY IF there is text in this box BECAUSE GIANTBOMB API IS GOOD.
 // https://react.semantic-ui.com/modules/dropdown/#types-search-selection
 
 // API links

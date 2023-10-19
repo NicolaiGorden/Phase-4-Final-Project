@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get "/me", to:"users#show"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users, only: [:index, :create]
+  resources :users, only: [:index, :create, :show]
+  resources :games, only: [:index]
+  resources :reviews, only: [:index]
 
   get '*path',
       to: 'fallback#index',
