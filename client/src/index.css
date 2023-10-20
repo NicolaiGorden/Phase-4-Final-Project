@@ -31,6 +31,40 @@ code {
   justify-content: center;
 }
 
+.dashboard-wrapper {
+  width: 1500px;
+  height: 800px;
+  background:
+    linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sidebar-wrapper {
+  width: 350px;
+  height: 700px;
+  background: rgb(68, 68, 68);
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.library-wrapper {
+  width: 950px;
+  height: 700px;
+  background: rgb(68, 68, 68);
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
 
 .login-input {
   width: 60%;
