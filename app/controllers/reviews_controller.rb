@@ -5,6 +5,9 @@ class ReviewsController < ApplicationController
         render json: reviews
     end
 
-        # REMEMBER! when doing post for games and reviews, include your validations in /models/concerns.
-        
+    def show
+        review = Review.find_by(id: params[:id])
+        render json:review, include: [:game, :user], except: [:created_at, :updated_at]
+    end
+    
 end

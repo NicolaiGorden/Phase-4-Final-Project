@@ -33,14 +33,15 @@ function GamePage() {
                 </div>
             </div>
             <div class="game-reviews">
+                <div class="reviews-header">Reviews</div>
                 <div class="review-wrapper">
                     <div class="review-subwrapper">
-                        {reviews ?
+                        {reviews[0] ?
                         reviews.map(e => {
-                            return <ReviewMini title={e.title} body={e.body} userId={e.userId} />
+                            return <ReviewMini title={e.title} body={e.body} reviewId={e.id} />
                         })
                         :
-                        <div> no reviews </div>
+                        <div class="no-review-message"> This game hasn't been reviewed yet. </div>
                         }
                     </div>
                 </div>

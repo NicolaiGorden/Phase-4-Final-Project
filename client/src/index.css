@@ -104,6 +104,22 @@ code {
   align-items: center;
 }
 
+.reviews-header {
+  width: 900px;
+  height: 40px;
+  background: rgb(121, 121, 121);
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow:hidden;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size:25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .review-wrapper {
   width: 900px;
   height: 700px;
@@ -121,7 +137,7 @@ code {
   height: 680px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: flex-start;
   overflow-y: scroll;
   overflow-x: hidden;
   flex-wrap: wrap;
@@ -145,24 +161,54 @@ code {
 .review {
   background: rgb(41, 41, 41);
   width: 850px;
-  height: 180px;
+  height: 150px;
   margin-top:10px;
   margin-bottom:5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .review-title-and-user {
-  width: 850px;
-  height: 50px;
+  width: 830px;
+  height: 30px;
+  margin-top: 5px;
+  display: flex;
+  font-family: 'PT Sans', sans-serif;
+  color:rgb(255, 255, 255);
+}
+
+.review-link:hover {
+  text-decoration: underline;
+}
+
+.review-link {
+  cursor: pointer;
+}
+
+.review-body-wrapper {
+  background: white;
+  width: 830px;
+  height: 100px;
+  border-radius: 10px;
+  text-align: start;
 }
 
 .review-body {
-  background: red;
-  width: 850px;
-  height: 130px;
+  padding: 8px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.no-review-message {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 30px;
+  background-color: rgb(66, 66, 66);
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(207, 207, 207, 0.8);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 
 .dashboard-wrapper {
@@ -229,7 +275,6 @@ code {
   padding-left: 10px;
   font-family: 'PT Sans', sans-serif;
 }
-
 
 .search-results-wrapper {
   width: 800px;
