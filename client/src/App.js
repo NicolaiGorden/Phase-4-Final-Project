@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import Gate from './components/Gate';
 import Editor from './components/Editor';
+import GamePage from './components/GamePage';
 
 export const LoginContext = createContext();
 
@@ -22,6 +23,7 @@ function App() {
       <LoginContext.Provider value={[user, setUser]}>
         <div className="App">
           <Switch>
+            <Route path="/game/:gameId" component={GamePage}/>
             <Route path="/editor" component={Editor}/>
             <Route path="/gate" component={Gate}/>
             <Route path="/" component={Dashboard}/>

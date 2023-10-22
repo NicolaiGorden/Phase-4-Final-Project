@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Game({image, id, name}) {
-    //clicking on game should open dynamic route or whateva, see:
-    //https://learning.flatironschool.com/courses/5652/assignments/208303?module_item_id=480174
-    //https://www.youtube.com/watch?v=P5xgsRIKJjo
+    const history = useHistory()
+
+    function onGameClick(e) {
+        e.preventDefault()
+        history.push(`/game/${id}`)
+    }
 
     return (
-        <div class="game">
+        <div onClick={onGameClick}class="game">
             <div class="title-card">
                 <div class="title-text">{name}</div>
             </div>

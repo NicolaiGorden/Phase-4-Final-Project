@@ -32,6 +32,139 @@ code {
   justify-content: center;
 }
 
+.game-page-wrapper {
+  width: 1500px;
+  height: 850px;
+  background:
+    linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.game-info {
+  width: 350px;
+  height: 780px;
+  background: rgb(68, 68, 68);
+  box-shadow: inset 0px 0px 45px #000;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1em;
+}
+
+.game-big {
+  width: 292px;
+  height: 380px;
+  background: rgb(29, 29, 29);
+  box-shadow: 5px 10px 20px #000;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 380px; 
+  grid-template-columns: 292px;
+}
+.game-title {
+  width: 292px;
+  height: 75px;
+  background: rgb(121, 121, 121);
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow:hidden;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size:25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-img-big {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.game-reviews {
+  width: 950px;
+  height: 780px;
+  background: rgb(68, 68, 68);
+  box-shadow: inset 0px 0px 45px #000;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.review-wrapper {
+  width: 900px;
+  height: 700px;
+  background: rgb(197, 197, 197);
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-subwrapper {
+  width: 890px;
+  height: 680px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+}
+
+.review-subwrapper::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+.review-subwrapper::-webkit-scrollbar-track {
+  background: rgb(151, 151, 151);
+  border-radius: 8px;
+}
+
+.review-subwrapper::-webkit-scrollbar-thumb {
+  background: rgb(75, 75, 75);
+  border-radius: 8px;
+}
+
+.review {
+  background: rgb(41, 41, 41);
+  width: 850px;
+  height: 180px;
+  margin-top:10px;
+  margin-bottom:5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-title-and-user {
+  width: 850px;
+  height: 50px;
+}
+
+.review-body {
+  background: red;
+  width: 850px;
+  height: 130px;
+}
+
 .dashboard-wrapper {
   width: 1500px;
   height: 850px;
