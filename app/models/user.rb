@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: {message: "already belongs to another user!"}
     validate :password, :must_contain_uppercase
 
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
     has_many :games, through: :reviews
 
     def must_contain_uppercase

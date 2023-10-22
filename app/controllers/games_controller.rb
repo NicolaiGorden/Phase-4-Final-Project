@@ -11,7 +11,7 @@ class GamesController < ApplicationController
     end
 
     def trending
-        games = Game.all.sort_by{|game| game.reviews.length}.take(5)
+        games = Game.all.sort_by{|game| game.reviews.length}.reverse.take(5)
         render json: games
     end
 
