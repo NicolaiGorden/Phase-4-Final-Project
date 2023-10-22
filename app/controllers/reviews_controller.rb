@@ -5,4 +5,6 @@ class ReviewsController < ApplicationController
         render json: reviews
     end
 
+        # REMEMBER! when doing post for games and reviews, include your validations in /models/concerns.
+        
 end

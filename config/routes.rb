@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   post "/login", to: "sessions#create"
-  get "/me", to:"users#show"
   delete "/logout", to: "sessions#destroy"
+
+  get "/me", to:"users#show"
+
+  get "games/trending", to:"games#trending"
+
+  get "games/search/:query", to:"games#search"
 
   resources :users, only: [:index, :create, :show]
   resources :games, only: [:index]

@@ -1,4 +1,5 @@
 body {
+  background-color: rgb(68, 68, 68);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,9 +24,9 @@ code {
   height: 500px;
   background:
     linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
+  box-shadow: 5px 20px 50px #000;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 5px 20px 50px #000;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -33,7 +34,7 @@ code {
 
 .dashboard-wrapper {
   width: 1500px;
-  height: 800px;
+  height: 850px;
   background:
     linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
   overflow: hidden;
@@ -47,8 +48,9 @@ code {
 
 .sidebar-wrapper {
   width: 350px;
-  height: 700px;
+  height: 780px;
   background: rgb(68, 68, 68);
+  box-shadow: inset 0px 0px 45px #000;
   overflow: hidden;
   display: flex;
   flex-flow: column;
@@ -57,14 +59,151 @@ code {
 
 .library-wrapper {
   width: 950px;
-  height: 700px;
+  height: 780px;
   background: rgb(68, 68, 68);
+  box-shadow: inset 0px 0px 45px #000;
   overflow: hidden;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
+.search-wrapper {
+  width: 900px;
+  height: 470px;
+  background: rgb(121, 121, 121);
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-input-space {
+  width: 900px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 200px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 20px;
+  border:none;
+  padding-left: 10px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+
+.search-results-wrapper {
+  width: 840px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 1em;
+}
+
+.no-results-wrapper {
+  width: 840px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-header-one {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 50px;
+  background-color: rgb(27, 27, 27);
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(119, 119, 119, 0.8);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.trending-games-wrapper {
+  width: 900px;
+  height: 260px;
+  background: rgb(197, 197, 197);
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+}
+
+.trending-games-subwrapper {
+  width: 900px;
+  height: 220px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.trending-header-one {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 30px;
+  background-color: rgb(66, 66, 66);
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(207, 207, 207, 0.8);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.trending-header-space {
+  margin-left:35px;
+  display: flex;
+}
+
+.game {
+  width: 146px;
+  height: 190px;
+  background: rgb(29, 29, 29);
+  box-shadow: 5px 10px 20px #000;
+  cursor: pointer;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 190px; 
+  grid-template-columns: 146px;
+}
+
+.title-card {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1;
+  background: rgb(71, 64, 77, 0);
+  color: rgb(255, 255, 255, 0);
+  transition: 0.2s;
+}
+
+.title-text {
+  padding: 50px 5px 0px 5px;
+  overflow:hidden;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size:18px
+}
+
+.title-card:hover {
+  background: rgb(71, 64, 77, 0.9);
+  color: rgb(255, 255, 255);
+}
+
+.library-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.library-img, .title-card {
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
 
 .login-input {
   width: 60%;
