@@ -7,7 +7,7 @@ class GamesController < ApplicationController
 
     def show
         game = Game.find_by(id: params[:id])
-        render json:game, include: [:reviews]
+        render json:game, include: [:reviews], methods: [:average_score]
     end
 
     def trending
