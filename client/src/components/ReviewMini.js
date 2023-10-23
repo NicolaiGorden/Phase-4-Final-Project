@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-function ReviewMini({title, body, reviewId}) {
+function ReviewMini({title, body, reviewId, score}) {
 
     const [userId, setUserId] = useState('')
     const [username, setUsername] = useState('')
     const [errorData, setErrorData] = useState([])
+    const [scoreNum, setScoreNum] = useState('')
     
     useEffect(() => {
         fetch(`/reviews/${reviewId}`)
@@ -23,7 +24,10 @@ function ReviewMini({title, body, reviewId}) {
     return (
         <div class="review">
             <div class="review-title-and-user">
-                "{title}" by&nbsp;<a class="review-link">{username}</a>
+                <div class="rvtitle">
+                    "{title}" by&nbsp;<a class="review-link">{username}</a>
+                </div>
+                <div class="rvscore">{score}/10</div>
             </div>
             <div class="review-body-wrapper">
                 <div class="review-body">

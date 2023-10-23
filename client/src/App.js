@@ -3,8 +3,8 @@ import { useState, createContext, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import Gate from './components/Gate';
-import Editor from './components/Editor';
 import GamePage from './components/GamePage';
+import ReviewPage from './components/ReviewPage';
 
 export const LoginContext = createContext();
 
@@ -23,8 +23,10 @@ function App() {
       <LoginContext.Provider value={[user, setUser]}>
         <div className="App">
           <Switch>
+            <Route path="/updatereview/:redirectReviewId" component={ReviewPage}/>
+            <Route path="/newreview/:redirectGameId" component={ReviewPage}/>
+            <Route path="/newreview" component={ReviewPage}/>
             <Route path="/game/:gameId" component={GamePage}/>
-            <Route path="/editor" component={Editor}/>
             <Route path="/gate" component={Gate}/>
             <Route path="/" component={Dashboard}/>
           </Switch>

@@ -7,7 +7,13 @@ class GamesController < ApplicationController
 
     def show
         game = Game.find_by(id: params[:id])
-        render json:game, include: [:reviews], methods: [:average_score]
+
+        if game
+            render json:game, include: [:reviews], methods: [:average_score]
+        else
+            render json: { error: "This game does not exist." }, status: :not_found
+        end
+        
     end
 
     def trending
