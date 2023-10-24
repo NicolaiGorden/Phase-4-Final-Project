@@ -13,8 +13,11 @@ function ReviewPage() {
     const [currentGame, setCurrentGame] = useState({ guid: '', image: 'no game :(', name:'' })
 
     const [searchId, setSearchId] = useState('')
-    const [searchResults, setSearchResults] = useState([])
     const [input, setInput] = useState('')
+    const [titleInput, setTitleInput] = useState('')
+    const [bodyInput, setBodyInput] = useState('')
+    const [score, setScore] = useState(1)
+    const [searchResults, setSearchResults] = useState([])
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
@@ -45,20 +48,6 @@ function ReviewPage() {
             })
         }
     }, [])
-
-    // useEffect(() => {
-    //     fetchJsonp(
-    //         `https://www.giantbomb.com/api/game/${redirectGameGuid}/?api_key=96b1a2f459df7597812987b460af056962057bd6&format=jsonp&field_list=image,guid,name`,
-    //         {jsonpCallback: 'json_callback'},
-    //     ).then(res => {
-    //         if(res.ok) {
-    //             res.json().then(data => {
-    //                 setCurrentGame(data.results)
-    //                 setInput(data.results.name)
-    //             })
-    //         }
-    //     })  
-    // }, [handleResultClick])
     
     const onSearchClick = () => {
         setIsOpen(true)
@@ -67,6 +56,19 @@ function ReviewPage() {
     const handleChange = (value) => {
         setInput(value)
     }
+
+    const handleTitleChange = (value) => {
+        setTitleInput(value)
+    }
+
+    const handleBodyChange = (value) => {
+        setBodyInput(value)
+    }
+
+    const handleScoreChange = (value) => {
+        setScore(value)
+    }
+
     const handleResultClick = (e) => {
         setIsOpen(false)
         fetchJsonp(
@@ -110,14 +112,25 @@ function ReviewPage() {
                     </div>
                     <label class="review-label">Name your review:</label>
                     <div class="title-input-wrapper">
-                        <input class="title-input"/>
+                        <input 
+                            class="title-input"
+                            placeholder="Enter Review Title"
+                            value={titleInput}
+                            onChange={(e) => handleTitleChange(e.target.value)}
+                        />
+
                     </div>
                     <label class="review-label">Review:</label>
                     <div class="body-input-wrapper">
-                        <textarea class="body-input"/>
+                        <textarea 
+                            class="body-input"
+                            placeholder= {`Thoughts on ${currentGame.name}? (280 chars max.)`}
+                            value={bodyInput}
+                            onChange={(e) => handleBodyChange(e.target.value)}
+                        />
                     </div>
                     <label class="score-label">Score:</label>
-                    <select class="score-select">
+                    <select defaultValue={score} class="score-select" onChange={(e) => handleScoreChange(e.target.value)}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

@@ -226,6 +226,7 @@ code {
   margin-left: 5px;
   margin-right: 5px;
   font-family: 'PT Sans', sans-serif;
+  padding: 10px;
   
 }
 
@@ -250,6 +251,7 @@ code {
   margin-left: 5px;
   margin-right: 5px;
   font-family: 'PT Sans', sans-serif;
+  padding: 10px;
 }
 
 .score-label{
@@ -284,6 +286,19 @@ code {
 .game-search-input:focus {
   outline:none;
 }
+
+.title-input:focus {
+  outline:none;
+}
+
+.body-input:focus {
+  outline:none;
+}
+
+.score-select:focus {
+  outline:none;
+}
+
 
 .game-page-wrapper {
   width: 1500px;
