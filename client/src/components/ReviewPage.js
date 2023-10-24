@@ -91,8 +91,9 @@ function ReviewPage() {
                 </div>
             </div>
 
-            <div class= "review-form">
-                <form>
+            <div class= "review-form-wrapper">
+                <form class= "review-form">
+                    <label class="review-label">Search for a game:</label>         
                     <div class="dropdown-container">
                         <DropdownSearch 
                             setResults={setSearchResults} 
@@ -107,6 +108,27 @@ function ReviewPage() {
                             setIsOpen = {setIsOpen}
                         />
                     </div>
+                    <label class="review-label">Name your review:</label>
+                    <div class="title-input-wrapper">
+                        <input class="title-input"/>
+                    </div>
+                    <label class="review-label">Review:</label>
+                    <div class="body-input-wrapper">
+                        <textarea class="body-input"/>
+                    </div>
+                    <label class="score-label">Score:</label>
+                    <select class="score-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                 </form>
             </div>
         </div>

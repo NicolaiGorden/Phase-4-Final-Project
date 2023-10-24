@@ -77,8 +77,8 @@ code {
 }
 
 .review-page-wrapper {
-  width: 1500px;
-  height: 850px;
+  width: 1400px;
+  height: 600px;
   background:
     linear-gradient(45deg, rgb(151, 111, 216), rgb(182, 186, 243));
   overflow: hidden;
@@ -92,20 +92,20 @@ code {
 
 .review-game-info {
   width: 350px;
-  height: 780px;
+  height: 550px;
   background: rgb(68, 68, 68);
   box-shadow: inset 0px 0px 45px #000;
   overflow: hidden;
   display: flex;
   flex-flow: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 1em;
 }
 
-.review-form {
+.review-form-wrapper {
   width: 950px;
-  height: 780px;
+  height: 550px;
   background: rgb(68, 68, 68);
   box-shadow: inset 0px 0px 45px #000;
   overflow: hidden;
@@ -115,6 +115,12 @@ code {
   align-items: center;
 }
 
+.review-form {
+  width: 900px;
+  display:flex;
+  flex-direction: column;
+}
+
 .review-form-header {
   text-align: start;
   font-family: 'PT Sans', sans-serif;
@@ -122,6 +128,21 @@ code {
 
 .dropdown-container {
   width:500px;
+}
+
+.review-label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'PT Sans', sans-serif;
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  background: rgb(121, 121, 121);
+  box-shadow: 5px 20px 50px #000;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  margin-top: 5px
 }
   
 .input-wrapper {
@@ -133,6 +154,7 @@ code {
   display: flex;
   align-items: center;
   box-shadow: 5px 20px 50px #000;
+  margin-bottom: 5px;
 }
 
 .game-search-input {
@@ -142,8 +164,8 @@ code {
   width: 100%;
   font-size: 20px;
   margin-left: 5px;
+  margin-right: 5px;
   font-family: 'PT Sans', sans-serif;
-  
 }
 
 .dropdown-results-active {
@@ -180,7 +202,83 @@ code {
 
 #search-icon {
   color:#333333;
+  margin-left: 10px;
+}
+
+.title-input-wrapper {
+  background: white;
+  height:50px;
+  width:100%;
+  border-radius: 10px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 20px 50px #000;
+  margin-bottom: 5px;
+}
+
+.title-input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
   margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'PT Sans', sans-serif;
+  
+}
+
+.body-input-wrapper {
+  background: white;
+  height:100px;
+  width:100%;
+  border-radius: 10px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 20px 50px #000;
+  margin-bottom: 5px;
+}
+
+.body-input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.score-label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'PT Sans', sans-serif;
+  margin-left: 10px;
+  width: 75px;
+  height: 30px;
+  background: rgb(121, 121, 121);
+  box-shadow: 5px 20px 50px #000;
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  margin-top: 5px
+}
+
+.score-select {
+  background: white;
+  height:50px;
+  width:100px;
+  border-radius: 10px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 20px 50px #000;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  text-align: center;
 }
 
 .game-search-input:focus {

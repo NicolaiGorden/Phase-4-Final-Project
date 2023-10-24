@@ -7,7 +7,8 @@ function DropdownList({searchResults, isOpen, setIsOpen, handleResultClick}) {
 
     useEffect(() => {
         document.addEventListener("mousedown", (event) => {
-            if (!dropDownRef.current.contains(event.target)) {
+
+            if (!dropDownRef?.current?.contains(event.target)) {
                 setIsOpen(false)
             }
         })
