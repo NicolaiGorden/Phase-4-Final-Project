@@ -24,7 +24,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route path="/updatereview/:redirectReviewId" component={ReviewPage}/>
-            <Route path="/newreview/:redirectGameId" component={ReviewPage}/>
+            <Route path="/newreview/:redirectGameGuid" component={ReviewPage}/>
             <Route path="/newreview" component={ReviewPage}/>
             <Route path="/game/:gameId" component={GamePage}/>
             <Route path="/gate" component={Gate}/>

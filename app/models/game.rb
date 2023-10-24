@@ -1,4 +1,7 @@
 class Game < ApplicationRecord
+
+    validates :guid, presence: true, uniqueness: {message: "has already been reviewed. Skip Post New Game."}
+
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
 

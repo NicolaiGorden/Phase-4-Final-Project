@@ -115,6 +115,78 @@ code {
   align-items: center;
 }
 
+.review-form-header {
+  text-align: start;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.dropdown-container {
+  width:500px;
+}
+  
+.input-wrapper {
+  background: white;
+  height:50px;
+  width:100%;
+  border-radius: 10px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 20px 50px #000;
+}
+
+.game-search-input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  margin-left: 5px;
+  font-family: 'PT Sans', sans-serif;
+  
+}
+
+.dropdown-results-active {
+  width:500px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.dropdown-results-inactive {
+  width:500px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 20px 50px #000;
+  border-radius: 10px;
+  margin-top: 10px;
+  position: absolute;
+  display: none;
+}
+
+.dropdown-search-result {
+  padding: 5px 20px;
+  cursor: pointer
+}
+
+.dropdown-search-result:hover {
+  background: rgb(68, 68, 68, 25%)
+}
+
+#search-icon {
+  color:#333333;
+  margin-left: 5px;
+}
+
+.game-search-input:focus {
+  outline:none;
+}
+
 .game-page-wrapper {
   width: 1500px;
   height: 850px;
@@ -201,9 +273,9 @@ code {
 }
 
 .review-button:hover {
-  width: 205px;
-  height: 55px;
-  font-size: 13px;
+  width: 203px;
+  height: 53px;
+  font-size: 15px;
 }
 
 .game-reviews {
@@ -275,7 +347,7 @@ code {
 .review {
   background: rgb(41, 41, 41);
   width: 850px;
-  height: 150px;
+  height: 125px;
   margin-top:10px;
   margin-bottom:5px;
   display: flex;
@@ -291,6 +363,7 @@ code {
   margin-top: 5px;
   display: flex;
   font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
   color:rgb(255, 255, 255);
 }
 
@@ -305,14 +378,19 @@ code {
 .review-body-wrapper {
   background: white;
   width: 830px;
-  height: 100px;
+  height: 75px;
   border-radius: 10px;
   text-align: start;
+  border-style: solid;
+  border-color: #9c9c9c;
+  border-width: 0;
+  border-bottom-width: 3px
 }
 
 .review-body {
   padding: 8px;
   font-family: 'PT Sans', sans-serif;
+  font-size: 15px
 }
 
 .no-review-message {

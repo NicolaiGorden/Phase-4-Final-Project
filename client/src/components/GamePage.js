@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import ReviewMini from './ReviewMini';
 
 function GamePage() {
+    const history = useHistory();
     const { gameId } = useParams();
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('');
     const [art, setArt] = useState('');
-    const [reviews, setReviews] = useState([])
-    const [averageScore, setAverageScore] = useState('')
-    const [errorData, setErrorData] = useState("This game hasn't been reviewed yet.")
+    const [reviews, setReviews] = useState([]);
+    const [averageScore, setAverageScore] = useState('');
+    const [guid, setGuid] = useState('');
+    const [errorData, setErrorData] = useState("This game hasn't been reviewed yet.");
 
     useEffect(() => {
         fetch(`/games/${gameId}`)
         .then(res => {
             if (res.ok) {
-                console.log(res)
                 res.json().then(data => {
                     setArt(data.art)
                     setReviews(data.reviews)
                     setTitle(data.name)
                     setAverageScore(data.average_score)
+                    setGuid(data.guid)
                 })
             } else {
                 res.json().then( (err) => {setErrorData(err.error)} )
             }
         })
     },[])
+
+    function handleNewReview() {
+        history.push(`/newreview/${guid}`)
+    }
 
     return (
         <div class="game-page-wrapper">
@@ -36,7 +42,7 @@ function GamePage() {
                 </div>
                 <div class={averageScore ?"average-score":"no-score"}>
                     {averageScore ?
-                        `${averageScore}/10`
+                        `User Rating: ${averageScore}/10`
                     :
                         "This game hasn't been scored yet."
                     }
@@ -44,7 +50,7 @@ function GamePage() {
                 <div class="button-space">
                     {/* if not logged in, show button that redirects to gate.
                     if logged in and have reviewed game, says 'update review' and loads previous review into form */}
-                    <button class="review-button">+ New Review</button>
+                    <button onClick={handleNewReview} class="review-button">+ New Review</button>
                 </div>
             </div>
 
