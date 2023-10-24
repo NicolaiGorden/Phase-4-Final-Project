@@ -163,7 +163,7 @@ code {
   height: 100%;
   width: 100%;
   font-size: 20px;
-  margin-left: 5px;
+  margin-left: 35px;
   margin-right: 5px;
   font-family: 'PT Sans', sans-serif;
 }
@@ -203,6 +203,8 @@ code {
 #search-icon {
   color:#333333;
   margin-left: 10px;
+  pointer-events: none;
+  position: absolute;
 }
 
 .title-input-wrapper {
@@ -281,6 +283,7 @@ code {
   font-family: 'PT Sans', sans-serif;
   font-size: 20px;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .game-search-input:focus {
@@ -386,9 +389,32 @@ code {
 }
 
 .review-button:hover {
-  width: 203px;
-  height: 53px;
-  font-size: 15px;
+  background: rgb(121, 121, 121);
+  outline-color: rgb(172, 172, 172);
+}
+
+.post-review-button {
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  outline-style: solid;
+  outline-width: 3px;
+  outline-color: rgb(121, 121, 121);
+  background: rgb(173, 173, 173);
+  transition: 0.2s;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+.post-review-button:hover {
+  background: rgb(121, 121, 121);
+  outline-color: rgb(172, 172, 172);
 }
 
 .game-reviews {

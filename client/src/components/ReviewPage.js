@@ -1,24 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import SelectSearch from 'react-select-search'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import fetchJsonp from 'fetch-jsonp'
 import DropdownSearch from './DropdownSearch';
 import DropdownList from './DropdownList';
+import { LoginContext } from '../App';
 
 
 function ReviewPage() {
     const { redirectGameGuid } = useParams()
-    const { redirectReviewId } = useParams()
 
+    const [user, setUser] = useContext(LoginContext)
+    const [myLibrary, setMyLibrary] = useState([])
     const [currentGame, setCurrentGame] = useState({ guid: '', image: 'no game :(', name:'' })
 
-    const [searchId, setSearchId] = useState('')
     const [input, setInput] = useState('')
     const [titleInput, setTitleInput] = useState('')
     const [bodyInput, setBodyInput] = useState('')
     const [score, setScore] = useState(1)
     const [searchResults, setSearchResults] = useState([])
+
     const [isOpen, setIsOpen] = useState(false)
+    const [userOwnsGame, setUserOwnsGame] = useState(false)
 
     useEffect(() => {
         fetchJsonp(
@@ -48,6 +51,25 @@ function ReviewPage() {
             })
         }
     }, [])
+
+    useEffect(() => {
+        if (user) {
+        setMyLibrary(user.games.map((e)=>e.guid))
+        }
+    },[user])
+
+    useEffect(() => {
+        if(myLibrary.includes(currentGame.guid)) {
+            const gameIdRef = user.games.find((e) => e.guid === currentGame.guid).id
+            const myReview = user.reviews.find((e) => e.game_id === gameIdRef)
+            console.log(myReview)
+            setUserOwnsGame(true)
+            setBodyInput(myReview.body)
+            setTitleInput(myReview.title)
+            setScore(myReview.score)
+
+        }
+    }, [currentGame])
     
     const onSearchClick = () => {
         setIsOpen(true)
@@ -79,6 +101,10 @@ function ReviewPage() {
                 res.json().then(data => {
                     setCurrentGame(data.results)
                     setInput(data.results.name)
+                    setTitleInput('')
+                    setBodyInput('')
+                    setScore(1)
+                    setUserOwnsGame(false)
                 })
             }
         })  
@@ -130,7 +156,7 @@ function ReviewPage() {
                         />
                     </div>
                     <label class="score-label">Score:</label>
-                    <select defaultValue={score} class="score-select" onChange={(e) => handleScoreChange(e.target.value)}>
+                    <select value={score} class="score-select" onChange={(e) => handleScoreChange(e.target.value)}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -142,6 +168,9 @@ function ReviewPage() {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+
+                    <button class="post-review-button">{userOwnsGame ? 'Update Review' : 'Post Review'}</button>
+
                 </form>
             </div>
         </div>

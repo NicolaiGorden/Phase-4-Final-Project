@@ -14,24 +14,25 @@ function App() {
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user))
+        response.json().then((user) => {
+          setUser(user)
+        })
       }
     })
   }, [])
 
   return (
-      <LoginContext.Provider value={[user, setUser]}>
-        <div className="App">
-          <Switch>
-            <Route path="/updatereview/:redirectReviewId" component={ReviewPage}/>
-            <Route path="/newreview/:redirectGameGuid" component={ReviewPage}/>
-            <Route path="/newreview" component={ReviewPage}/>
-            <Route path="/game/:gameId" component={GamePage}/>
-            <Route path="/gate" component={Gate}/>
-            <Route path="/" component={Dashboard}/>
-          </Switch>
-        </div>
-      </LoginContext.Provider>
+    <LoginContext.Provider value={[user, setUser]}>
+      <div className="App">
+        <Switch>
+          <Route path="/newreview/:redirectGameGuid" component={ReviewPage}/>
+          <Route path="/newreview" component={ReviewPage}/>
+          <Route path="/game/:gameId" component={GamePage}/>
+          <Route path="/gate" component={Gate}/>
+          <Route path="/" component={Dashboard}/>
+        </Switch>
+      </div>
+    </LoginContext.Provider>
   );
 }
 
