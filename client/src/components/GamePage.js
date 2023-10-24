@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { LoginContext } from '../App';
 import ReviewMini from './ReviewMini';
 
 function GamePage() {
     const history = useHistory();
+    const [user, setUser] = useContext(LoginContext);
+    const [myLibrary, setMyLibrary] = useState([])
+     
     const { gameId } = useParams();
     const [title, setTitle] = useState('');
     const [art, setArt] = useState('');
@@ -11,6 +15,19 @@ function GamePage() {
     const [averageScore, setAverageScore] = useState('');
     const [guid, setGuid] = useState('');
     const [errorData, setErrorData] = useState("This game hasn't been reviewed yet.");
+    const [userOwnsGame, setUserOwnsGame] = useState(false);
+
+    useEffect(() => {
+        if (user) {
+        setMyLibrary(user.games.map((e)=>e.guid))
+        }
+    },[user])
+
+    useEffect(() => {
+        if(myLibrary.includes(guid)) {
+            setUserOwnsGame(true)
+        }
+    }, [guid, user])
 
     useEffect(() => {
         fetch(`/games/${gameId}`)
@@ -50,7 +67,7 @@ function GamePage() {
                 <div class="button-space">
                     {/* if not logged in, show button that redirects to gate.
                     if logged in and have reviewed game, says 'update review' and loads previous review into form */}
-                    <button onClick={handleNewReview} class="review-button">+ New Review</button>
+                    <button onClick={handleNewReview} class="review-button">{userOwnsGame ? "Update My Review" : "New Review"}</button>
                 </div>
             </div>
 
